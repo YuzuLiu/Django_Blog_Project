@@ -26,12 +26,12 @@ urlpatterns = [
 
 # Use include() to add paths from the catalog application
 urlpatterns += [
-    path('catalog', include('catalog.urls')),
+    path('blog', include('blog.urls')),
 ]
 
 # Add URL maps to redirect the base URL to our application
 urlpatterns += [
-    path('', RedirectView.as_view(url='catalog/', permanent=True)),
+    path('', RedirectView.as_view(url='blog/', permanent=True)),
 ]
 
 # Use static() to add URL mapping to serve static files during development (only)
