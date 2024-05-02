@@ -1,4 +1,6 @@
 {% extends "base_generic.html" %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 
 {% block content %}
   <h1>Blog List</h1>
@@ -7,7 +9,7 @@
       {% for blog in blog_list %}
       <li>
         <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a>
-        ({{blog.blogger}})
+        ({{blog.post_date}}) - <a href="{{ blog.blogger.get_absolute_url }}">{{ blog.blogger }}</a>
       </li>
       {% endfor %}
     </ul>
