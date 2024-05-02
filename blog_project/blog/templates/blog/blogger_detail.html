@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Blogger: {{ blogger.name }}</h1>
+
+  <p><strong>Bio:</strong><br>{{ blogger.bio }}</p>
+  <p><strong>Blogs List:</strong></p>
+  <ul>
+    {% for blog in blogger.blog_set.all %}
+      <li><a href="{% url 'blog-detail' blog.pk %}">{{blog}}</a> - ({{ blog.post_date }})</li>
+      {% empty %}
+      <p>This blogger hasn't post any blogs.</p>
+    {% endfor %}
+  </ul>
+{% endblock %}

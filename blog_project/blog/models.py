@@ -44,8 +44,8 @@ class Blog(models.Model):
 
     type = models.ForeignKey(Type, on_delete=models.RESTRICT, null=True)
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4,
-                          help_text="Unique ID for this particular blog across whole website")
+    class Meta:
+        ordering = ['post_date']
 
     def __str__(self):
         """String for representing the Model object."""
