@@ -29,10 +29,6 @@ class BlogListView(generic.ListView):
 class BlogDetailView(generic.DetailView):
     model = Blog
 
-    def blog_detail_view(request, primary_key):
-        blog = get_object_or_404(Blog, pk=primary_key)
-        return render(request, 'catalog/blog_detail.html', context={'blog': blog})
-
 class BloggerListView(generic.ListView):
     model = Blogger
     context_object_name = 'blogger_list'
@@ -40,7 +36,3 @@ class BloggerListView(generic.ListView):
 
 class BloggerDetailView(generic.DetailView):
     model = Blogger
-
-    def blogger_detail_view(request, primary_key):
-        blog = get_object_or_404(Blogger, pk=primary_key)
-        return render(request, 'catalog/blogger_detail.html', context={'blogger': blogger})
