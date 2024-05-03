@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views import generic
 
 from .models import Blog, Blogger, Type
@@ -13,9 +13,13 @@ def index(request):
     # The 'all()' is implied by default.
     num_bloggers = Blogger.objects.count()
 
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+
     context = {
         'num_blogs': num_blogs,
         'num_bloggers': num_bloggers,
+        'num_visits': num_visits,
     }
 
     # Render the HTML template index.html with the data in the context variable
