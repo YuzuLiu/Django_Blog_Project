@@ -12,3 +12,7 @@ urlpatterns = [
 urlpatterns += [
     path('blog/<int:pk>/create', views.CreateComment.as_view(), name='create-comment'),
 ]
+
+urlpatterns += [
+    path('signup/', views.user_signup, name='signup'),
+]
